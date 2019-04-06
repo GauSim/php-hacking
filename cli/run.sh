@@ -131,26 +131,26 @@ CLI Tooling
 pring_usage_and_exit (){
   echo "[Error] unknonw command";
   echo "try";
-  echo "./run.sh start mysql";
-  echo "./run.sh kill mysql";
-  echo "./run.sh bash mysql";
+  echo "./cli/run.sh start mysql";
+  echo "./cli/run.sh kill mysql";
+  echo "./cli/run.sh bash mysql";
   echo "";
-  echo "./run.sh start phpmyadmin";
-  echo "./run.sh kill phpmyadmin";
-  echo "./run.sh bash phpmyadmin";
+  echo "./cli/run.sh start phpmyadmin";
+  echo "./cli/run.sh kill phpmyadmin";
+  echo "./cli/run.sh bash phpmyadmin";
   echo "";
-  echo "./run.sh build";
-  echo "./run.sh start app";
-  echo "./run.sh kill app";
-  echo "./run.sh bash app";
+  echo "./cli/run.sh build";
+  echo "./cli/run.sh start app";
+  echo "./cli/run.sh kill app";
+  echo "./cli/run.sh bash app";
   echo ""
-  echo "./run.sh start all";
-  echo "./run.sh kill all";
+  echo "./cli/run.sh start all";
+  echo "./cli/run.sh kill all";
   echo "";
-  echo "./run.sh cleanup-all";
-  echo "./run.sh cleanup-images";
+  echo "./cli/run.sh cleanup-all";
+  echo "./cli/run.sh cleanup-images";
   echo "";
-  echo "./run.sh db-import";
+  echo "./cli/run.sh db-import";
   echo "";
   exit 1;
 }

@@ -2,29 +2,29 @@
 
 ```
 # MYSQL
-./run.sh start mysql
-./run.sh kill mysql
-./run.sh bash mysql
+./cli/run.sh start mysql
+./cli/run.sh kill mysql
+./cli/run.sh bash mysql
 
 # SEED
-./run.sh db-import
+./cli/run.sh db-import
 
 # PHPMYADMIN
-./run.sh start phpmyadmin
-./run.sh kill phpmyadmin
-./run.sh bash phpmyadmin
+./cli/run.sh start phpmyadmin
+./cli/run.sh kill phpmyadmin
+./cli/run.sh bash phpmyadmin
 
 # APP
-./run.sh build
-./run.sh start app
-./run.sh kill app
-./run.sh bash app
+./cli/run.sh build
+./cli/run.sh start app
+./cli/run.sh kill app
+./cli/run.sh bash app
 
 # ALL & CLEANUP
-./run.sh start all
-./run.sh kill all
+./cli/run.sh start all
+./cli/run.sh kill all
 
-./run.sh cleanup-all
-./run.sh cleanup-images
+./cli/run.sh cleanup-all
+./cli/run.sh cleanup-images
 
 ```
