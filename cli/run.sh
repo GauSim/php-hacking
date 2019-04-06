@@ -6,7 +6,7 @@ set -e
 
 MYSQL_CONTAINER="shopware-db"
 MYSQL_ROOT_PASSWORD="root"
-MYSQL_DATABASE_NAME="ud10_334_1"
+MYSQL_DATABASE_NAME="random_db"
 PHP_MY_ADMIN_CONTAINER="shopware-db-admin"
 APP_CONTAINER="shopware";
 
@@ -21,19 +21,17 @@ RUN MYSQL CONTAINER
 restart_mysql_container() {
     echo "restart myql";
     
-    (docker stop $MYSQL_CONTAINER || :) && docker run --rm -d --name $MYSQL_CONTAINER -v "$PWD/../db-bump":/db-bump -e MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD mysql:5
-
+    (docker stop $MYSQL_CONTAINER || :) && docker run --rm -d --name $MYSQL_CONTAINER -v "$PWD/db-bump":/db-bump -e MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD mysql:5
+    sleep 3;
     echo "mysql running...";
-    echo "mounting =>> $PWD/../db-bump into /db-bump";
+    echo "mounting =>> $PWD/db-bump into /db-bump";
     echo "root password is =>> $MYSQL_ROOT_PASSWORD";
 }
 
 run_mysql_import() {
   echo "creating DB => $MYSQL_DATABASE_NAME";
-  echo "echo 'create database $MYSQL_DATABASE_NAME character set utf8 collate utf8_general_ci' | (mysql --password='$MYSQL_ROOT_PASSWORD')" | docker exec -i $MYSQL_CONTAINER bash;
-  echo "";
-  echo "running import script, ./db-bump/backup.sql";
-  echo "(mysql --password='$MYSQL_ROOT_PASSWORD') < ./db-bump/backup.sql" | docker exec -i $MYSQL_CONTAINER bash
+  
+  echo "echo 'create database $MYSQL_DATABASE_NAME character set utf8 collate utf8_general_ci' | (mysql --password='$MYSQL_ROOT_PASSWORD')" | docker exec -i $MYSQL_CONTAINER bash && echo "(mysql --password='$MYSQL_ROOT_PASSWORD') < ./db-bump/backup.sql" | docker exec -i $MYSQL_CONTAINER bash
   echo "done";
 }
 
