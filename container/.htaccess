@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+
+RewriteEngine On
+
+RewriteCond %{REQUEST_URI} !^/_debug/
+RewriteRule (.*) /_debug/$1 
+
+# trun this on
+# RewriteCond %{REQUEST_URI} !^/app/
+# RewriteRule (.*) /app/$1 
+
+</IfModule>
